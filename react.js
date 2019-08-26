@@ -52,45 +52,50 @@ let {name, home, dislikes} = this.state
 
 // 4. Write a React method that would add one to the count and update the state.
 
-this.state = {
-  count: 0
+import React,{Component} from 'react'
+export default class App extends Component {
+  
+constructor(){
+  super()
+  this.state:
+  count:0
 }
-
-
-  let updateCount = () => {
-     this.setState({
-      count: 1,
-  })
-  };
-
+const added = () => {
+  let newCount = count+1
+  this.setState({count:newCount})
+}
+render(){
+  return(
+    )
+}
+}
 // 5. There are three mistakes in this code that would cause it to break our application. Find the mistakes and fix them:
 
 import React, { Component } from 'react';
 
-class Recipes {
+class Recipes extends Component {
   constructor(props){
     super(props)
     this.state = {
       recipes:
-        {name: 'Meatballs'},
-        {name: 'Mac & Cheese'}
+        [{name: 'Meatballs'},
+        {name: 'Mac & Cheese'}]
     }
   }
 
   render() {
-    return(
-      let recipes = recipes.map(recipe => {
-        return( <-------- Don't need this return 
+    let newRecipes = this.state.recipes
+      let recipes = newRecipes.map(recipe => {
+        return(  
           <li key={recipe.name}>{recipe.name}</li>
-        )
+          )
       })
-      <div> <------- Added div 
+      return(
       <ul>
         {recipes}
       </ul>
-      </div> <--------- Added div 
     )
-  } <-------- Don't need this curly bracket? 
+  } 
 }
 
 export default Recipes
